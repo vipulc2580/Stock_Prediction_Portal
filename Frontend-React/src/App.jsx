@@ -1,10 +1,15 @@
 import { useState } from 'react'
-
+import './assets/css/style.css'
+import Main from './components/main'
+import Header from './components/Header'
+import Footer from './components/Footer'
 function App() {
 
   return (
     <>
-      <h1>Stock Prediction Portal</h1>
+      <Header />
+      <Main />
+      <Footer />
     </>
   )
 }
