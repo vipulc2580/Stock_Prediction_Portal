@@ -28,19 +28,9 @@ const Register = () => {
         setMessage({ type: '', text: "" });
         setErrors({});
     };
-    const isValidEmail = (email) => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!isValidEmail(formData.email)) {
-            setAlert({ type: 'danger', message: 'Please enter a valid email address.' });
-            return;
-        }
-
         if (formData.password !== formData.confirm_password) {
             setMessage({ type: 'danger', text: 'Passwords do not match' });
             return;
@@ -89,13 +79,6 @@ const Register = () => {
                 <div className="col-md-8 col-lg-6">
                     <div className="card shadow bg-dark text-light rounded-4 p-4">
                         <h3 className="text-center mb-4">Create an Account</h3>
-
-                        {alert && (
-                            <div className={`alert alert-${message.type}`} role="alert">
-                                {message.text}
-                            </div>
-                        )}
-
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label className="form-label">First Name</label>

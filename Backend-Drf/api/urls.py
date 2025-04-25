@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-
+from . import views
 urlpatterns = [
     # ṛegister View 
     path('register/',UserViews.RegisterView.as_view(),name='register_user'),
@@ -17,5 +17,6 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     # protected View
-    path('protected-view/',UserViews.ProtectedView.as_view(),name='protected_view'),
+    # path('protected-view/',UserViews.ProtectedView.as_view(),name='protected_view'),
+    path('predict/',views.StockPredictionAPIView.as_view(),name='stock_prediction'),
 ]
